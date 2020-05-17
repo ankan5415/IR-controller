@@ -9,6 +9,7 @@ verify_ssl = true
 awsiotpythonsdk = "*"
 python-dotenv = "*"
 pyserial = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"

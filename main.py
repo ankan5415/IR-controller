@@ -11,6 +11,7 @@ ser.flush()
 
 def send_signal():
     ser.write(b"1\n")
+    print(ser.readline().decode('utf-8'))
 
 def convert_data(subtopic):
     payload = PubSub.get_payload(topic=os.getenv(subtopic))
@@ -26,10 +27,14 @@ current_status = 0
 if __name__ == "__main__":
     time.sleep(2)
     send_signal()
+    send_signal()
     while True:
+        # send_signal()
+        # time.sleep(1)
         desired_status = convert_data("subtopic")
         if desired_status != current_status and desired_status != None: 
-            print(desired_status)
+            # print(desired_status)
             # print("message_sent")
             send_signal()
+            current_status = desired_status
         
